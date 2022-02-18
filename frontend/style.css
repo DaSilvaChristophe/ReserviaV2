@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('font/Raleway/Raleway-Bold.eot');
+    src: url('font/Raleway/Raleway-Bold.eot?#iefix') format("embedded-opentype"),
+    url('font/Raleway/Raleway-Bold.woff2') format("woff2"), 
+    url('font/Raleway/Raleway-Bold.woff') format("woff"), 
+    url('font/Raleway/Raleway-Bold.ttf') format("truetype"), 
+    url('font/Raleway/Raleway-Bold.svg#Raleway-Bold') format("svg");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+body {
+    font-family: 'Raleway','Times New Roman', Times, serif;
+    font-size: 1em;
+}
+
+.text-grey {
+    color: #828282;
+}
+
+.text-blue {
+    color: #0065fc;
+}
+
+/* HEADER */
+
+.nav-hover {
+    color: #828282;
+}
+
+.nav-hover:hover {
+    color: #0065fc;
+    border-bottom: 2px solid #0065fc;
+};
