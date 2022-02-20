@@ -34,3 +34,26 @@ body {
     color: #0065fc;
     border-bottom: 2px solid #0065fc;
 };
+
+/* MAIN SECTION PRESENTATION */
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+
+.no-outline:focus {
+    outline: none;
+}
+
+/* MEDIA QUERIES */
+
+@media all and (max-width: 576px) { 
+    .respons-input{
+        width: 75%;
+    }
+}
+

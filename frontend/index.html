@@ -10,42 +10,85 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="./img/logo/Reservia.svg" alt="logo Réservia" class="ps-3" width="140" height="50">
+                    <img src="./img/logo/Reservia.svg" alt="logo Réservia" width="140" height="40">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-sm-flex justify-content-end pe-3" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item px-2">
-                        <a class="nav-hover text-decoration-none" aria-current="page" href="#">Accueil</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-hover text-decoration-none" href="#hébergements">Hébergements</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-hover text-decoration-none" href="#activités">Activités</a>
-                    </li>
-                    <li class="nav-item px-2">
-                        <a class="nav-hover text-decoration-none" href="login.html">S'inscrire</a>
-                    </li>
+                    <ul class="navbar-nav d-sm-flex align-items-start">
+                        <li class="nav-item px-2">
+                            <a class="nav-hover text-decoration-none" aria-current="page" href="#">Accueil</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-hover text-decoration-none" href="#hébergements">Hébergements</a>
+                        </li>
+                        <li class="nav-item px-2">
+                            <a class="nav-hover text-decoration-none" href="#activités">Activités</a>
+                        </li>
+                        <li id="dropdown" class="nav-item dropdown px-2">
+                            
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <main>
-        <section class="container-fluid">
+        <section class="presentation container-fluid mt-3">
             <div class="row ps-3">
-                <h1 class="h5">Trouvez votre hébergement pour des vacances de rêve</h1>
+                <h1 class="h5 w-75">Trouvez votre hébergement pour des vacances de rêve</h1>
                 <p class="text-grey">En plein centre ville ou en pleine nature</p>
             </div>
-            <div class="row"></div>
-            <div class="row"></div>
-            <div class="row"></div>
+            <div class="row d-flex justify-content-start ps-3 ">
+                <div class="col-md-5 col-sm-7 py-2 bg-light border rounded-pill d-flex justify-content-center respons-input">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="black" class="bi bi-geo-alt-fill mt-2 me-2" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                    </svg>
+                    <input class="col-6 no-outline rounded-pill py-1 ps-3 me-1" type="search" name="" id="" placeholder="Marseille">
+                    <input class="col-5 btn btn-outline-primary border-none rounded-pill" type="submit" value="Rechercher">
+                </div>
+            </div>
+            <div class="row mt-3 ps-3">
+                <div class="col-10 d-lg-flex justify-content-start align-items-center">
+                    <p class="pe-3">Filtres</p>
+                    <p class="btn btn-light border rounded-pill me-3 px-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0065fc" class="bi bi-coin mb-1 me-1" viewBox="0 0 16 16">
+                            <path d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z"/>
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"/>
+                          </svg>
+                    Economique</p>
+                    <p class="btn btn-light border rounded-pill me-3 px-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0065fc" class="bi bi-people-fill mb-1 me-1" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                          </svg>
+                    Familiale</p>
+                    <p class="btn btn-light border rounded-pill me-3 px-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0065fc" class="bi bi-heart-fill mb-1 me-1" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                          </svg>
+                    Romantique</p>
+                    <p class="btn btn-light border rounded-pill me-3 px-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#0065fc" class="bi bi-check2 mb-1 me-1" viewBox="0 0 16 16">
+                            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                          </svg>
+                    Animaux autorisés</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-flex ps-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#0065fc" class="bi bi-info-lg border rounded-circle" viewBox="0 0 16 16">
+                        <path d="m9.708 6.075-3.024.379-.108.502.595.108c.387.093.464.232.38.619l-.975 4.577c-.255 1.183.14 1.74 1.067 1.74.72 0 1.554-.332 1.933-.789l.116-.549c-.263.232-.65.325-.905.325-.363 0-.494-.255-.402-.704l1.323-6.208Zm.091-2.755a1.32 1.32 0 1 1-2.64 0 1.32 1.32 0 0 1 2.64 0Z"/>
+                    </svg>
+                    <p class="w-75 ps-2 text-grey">Plus de 500 logements sont disponibles dans cette ville</p>
+                </div>
+            </div>
         </section>
         <section id="hébergements">
             <h2></h2>
@@ -57,8 +100,8 @@
     <footer>
 
     </footer>
-    <script src="./index.js"></script>
+    
+    <script src="./js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-   
 </body>
 </html>
