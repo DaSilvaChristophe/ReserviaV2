@@ -9,15 +9,34 @@
     <title>Connexion/Inscription</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center pt-3">Bienvenue sur <img class="mb-2" src="./img/logo/Reservia.svg" alt="logo Réservia" style="width:170px ; height:70px"></h1>
-        <h2 class="h5 text-center">Une sélection des meilleurs hébergements vacances partout en Europe !</h2>
-        <p class="h5 text-center pt-3 text-blue">Créer mon compte </p>
+    <div class="container d-flex flex-column justify-content-center align-items-center">
+        <img class="mt-3" src="./img/logo/Reservia.svg" alt="logo Réservia" style="width:170px ; height:70px">
+        <h1 class="h5 text-center my-3 pt-3 text-dark">Je me connecte pour profitez des meilleurs offres !</h1>
     </div>
     <div class="container">
-            <form class="row w-50 h-50 mx-auto m-4 p-2 border g-3 needs-validation" novalidate>
-                
-            </form>  
+        <form class="row w-50 h-50 mx-auto m-4 p-2 border g-3 needs-validation" novalidate>
+          <div class="col-12">
+              <label for="validationEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="validationEmail" aria-describedby="emailHelp" maxlength="40" required>
+                <div class="invalid-feedback">
+                  Saisie Incorrect - Veuillez saisir un email valide.
+                </div>
+          </div>
+          <div class="col-12">
+              <label for="validationPassword" class="form-label"> <main>Mot de passe</main></label>
+              <input type="password" class="form-control" id="validationPassword" pattern="^[a-zA-Z]\w{3,14}$" minlength="4" maxlength="15" required>
+                <div class="invalid-feedback">
+                  Saisie Incorrect - Votre mot de passe doit commencer par une lettre, doit contenir au moins 4 caractères et pas plus de 15 caractères et aucun caractère autre que des lettres, chiffres et trait de soulignement ne peut être utilisé.
+                </div>
+          </div>
+          <div class="col-12">
+            <button class="btn btn-outline-primary" type="submit">Se connecter</button>
+          </div>
+        </form>
+        <div>
+          <p class="text-center"><a href="inscription.html" class="text-decoration-none">Pas encore de compte.. Inscrivez-vous !</a></p>
+          <p class="text-center my-2"><a href="index.html" class="text-decoration-none text-dark">Retour accueil</a></p>
+        </div>  
     </div>
     
     <script src="./js/login.js"></script>

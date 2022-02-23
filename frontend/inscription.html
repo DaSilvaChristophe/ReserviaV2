@@ -12,57 +12,49 @@
     <div class="container">
         <h1 class="text-center pt-3">Bienvenue sur <img class="mb-2" src="./img/logo/Reservia.svg" alt="logo Réservia" style="width:170px ; height:70px"></h1>
         <h2 class="h5 text-center">Une sélection des meilleurs hébergements de vacances partout en Europe !</h2>
-        <p class="h5 text-center pt-3 text-blue">Créer mon compte </p>
+        <p class="h5 text-center pt-3 text-blue">Créer mon compte</p>
     </div>
     <div class="container">
-            <form class="row w-50 h-50 mx-auto m-4 p-2 border g-3 needs-validation" novalidate>
-                <div class="col-12">
-                  <label for="validationCustom01" class="form-label">Ton Prénom</label>
-                  <input type="text" class="form-control" id="validationCustom01" value="" required>
-                  <div class="valid-feedback">
-                    Ok!
-                  </div>
-                  <div class="invalid-feedback">
-                    Please choose a username.
+        <form class="row w-50 h-50 mx-auto m-4 p-2 border g-3 needs-validation" novalidate>
+          <div class="col-12">
+            <label for="validationFirstName" class="form-label">Ton Prénom</label>
+            <input type="text" class="form-control" id="validationFirstName" value="" minlength="2" maxlength="47" pattern="^[^ -] ?[A-Za-z -]+$" required>
+              <div class="invalid-feedback">
+                Saisie Incorrect - Veuillez saisir uniquement des lettres pour votre prénom (tiret accepté pour les prénoms composés).
+              </div>
+          </div>
+          <div class="col-12">
+            <label for="validationLastName" class="form-label">Ton Nom</label>
+            <input type="text" class="form-control" id="validationLastName" value="" minlength="2" maxlength="163" pattern="^[^ -] ?[A-Za-z -]+$" required>
+              <div class="invalid-feedback">
+                Saisie Incorrect - Veuillez saisir uniquement des lettres pour votre nom (tiret accepté pour les prénoms composés).
+              </div>
+          </div>
+          <div class="col-12">
+              <label for="validationEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" id="validationEmail" aria-describedby="emailHelp" maxlength="40" required>
+                <div class="invalid-feedback">
+                  Saisie Incorrect - Veuillez saisir un email valide.
                 </div>
+          </div>
+          <div class="col-12">
+              <label for="validationPassword" class="form-label"> <main>Mot de passe</main></label>
+              <input type="password" class="form-control" id="validationPassword" pattern="^[a-zA-Z]\w{3,14}$" minlength="4" maxlength="15" required>
+                <div class="invalid-feedback">
+                  Saisie Incorrect - Votre mot de passe doit commencer par une lettre, doit contenir au moins 4 caractères et pas plus de 15 caractères et aucun caractère autre que des lettres, chiffres et trait de soulignement ne peut être utilisé.
                 </div>
-                <div class="col-12">
-                  <label for="validationCustom02" class="form-label">Ton Nom</label>
-                  <input type="text" class="form-control" id="validationCustom02" value="Otto" required>
-                  <div class="valid-feedback">
-                    Looks good!
-                  </div>
-                </div>
-                <div class="col-12">
-                    <label for="validationCustomEmail" class="form-label">Ton Email</label>
-                    <input type="email" class="form-control" id="validationCustomEmail" aria-describedby="emailHelp" required>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                    <div class="invalid-feedback">
-                        Please choose a username.
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Choisi ton Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="col">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button class="btn btn-primary" type="submit">Inscription</button>
-                </div>
-            </form>  
+          </div>
+          <div class="col-12">
+            <button class="btn btn-outline-primary" type="submit">Inscription</button>
+          </div>
+        </form>
+        <div>
+          <p class="text-center"><a href="login.html" class="text-decoration-none">Vous avez déja un compte..  Connectez-vous !</a></p>
+          <p class="text-center my-2"><a href="index.html" class="text-decoration-none text-dark">Retour accueil</a></p>
+        </div>  
     </div>
     
-    <script src="./js/inscription.js"></script>
+    <script src="./js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>
