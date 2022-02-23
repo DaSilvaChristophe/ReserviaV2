@@ -172,7 +172,7 @@ input {
 }
 
 @media all and (min-width: 992px) and (max-width: 1199px) { 
-    #hébergements{
+    #hebergements{
         display: flex;
         flex-direction: column-reverse;
     }
@@ -194,7 +194,7 @@ input {
 }
 
 @media all and (min-width: 769px) and (max-width: 991px) { 
-    #hébergements{
+    #hebergements{
         display: flex;
         flex-direction: column-reverse;
     }
@@ -215,7 +215,7 @@ input {
     }
 }
 @media all and (min-width: 477px) and (max-width: 768px) { 
-    #hébergements{
+    #hebergements{
         display: flex;
         flex-direction: column-reverse;
     }
@@ -234,7 +234,7 @@ input {
 }
 
 @media all and (max-width: 477px) { 
-    #hébergements{
+    #hebergements{
         display: flex;
         flex-direction: column-reverse;
     }
@@ -340,6 +340,7 @@ input {
         width: auto;
         height: 200px;
         border-radius: 20px;
+        margin-bottom: 10px;
     }
     
     .h2-div-activites{
@@ -354,6 +355,20 @@ input {
     }
 }
 
+/* footer */
+
+@media all and (max-width: 768px) { 
+    .mq-flex-footer{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .mq-w-div-footer{
+        width: 75%;
+
+    }
+}
 
 /* ANIMATIONS */
 
@@ -364,7 +379,7 @@ input {
     }
     .translate-presentation {animation: translate-presentation 7s ease 0s forwards;}
     #hebergements{animation: translate-presentation 7s ease 0s forwards;}
-    #activites{animation: translate-presentation 7s ease 0s forwards;}
+    #activites{animation: translate-presentation 9s ease 0s forwards;}
  
 @keyframes transition {
     0%   { margin-top: 50px ; opacity: 0.1; }
@@ -381,14 +396,6 @@ input {
     100% { opacity: 1; }
     }
     #apparition-opacity {opacity: 0; animation: opacity 3s ease-in-out 0s forwards;}
-
-@keyframes disparition-opacity {
-    0%   { opacity: 1; }
-    50% {  opacity: 0.5; }
-    100% { opacity: 0; }
-    }
-    #link-afficher-plus {opacity: 1; animation: disparition-opacity 3s ease-in-out 0s forwards;}
-
 
 @keyframes clignote {
     0%{box-shadow: 0 0 10px #0065fc;}
