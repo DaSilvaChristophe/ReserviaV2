@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend du projet réservia V2",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaSilvaChristophe/ReserviaV2.git"
+  },
+  "author": "Da Silva Christophe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaSilvaChristophe/ReserviaV2/issues"
+  },
+  "homepage": "https://github.com/DaSilvaChristophe/ReserviaV2#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.2.3",
+    "mongoose-unique-validator": "^3.0.0"
+  }
+}
