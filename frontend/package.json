@@ -1,0 +1,21 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "Frontend du projet Réservia V2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaSilvaChristophe/ReserviaV2.git"
+  },
+  "author": "Da Silva Christophe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaSilvaChristophe/ReserviaV2/issues"
+  },
+  "homepage": "https://github.com/DaSilvaChristophe/ReserviaV2#readme",
+  "dependencies": {
+  }
+}

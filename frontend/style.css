@@ -32,7 +32,7 @@ p {
     cursor: pointer;
 }
 
-/* HEADER */
+/* HEADER - HOME PAGE */
 
 .nav-hover {
     color: #828282;
@@ -43,7 +43,7 @@ p {
     border-bottom: 2px solid #0065fc;
 };
 
-/* MAIN SECTION PRESENTATION */
+/* MAIN SECTION PRESENTATION - HOME PAGE */
 
 input {
     border-top-style: hidden;
@@ -57,7 +57,7 @@ input {
     outline: none;
 }
 
-/* MAIN SECTION HEBERGEMENTS */
+/* MAIN SECTION HEBERGEMENTS - HOME PAGE*/
 
 .w-22{
     width: 22%;
@@ -89,7 +89,7 @@ input {
     border-radius: 20px 0 0 20px;
 }
 
-/* MAIN SECTION ACTIVITES */
+/* MAIN SECTION ACTIVITES - HOME PAGE */
 
 .redim-img-activites1 {
     object-fit: cover;
@@ -128,7 +128,7 @@ input {
 
 /* MEDIA QUERIES */
 
-/* form */
+/* form - home page */
 
 @media all and (max-width: 575px) { 
     .respons-input{
@@ -139,7 +139,7 @@ input {
     }
 }
 
-/* filtres */
+/* filtres - home page */
 
 @media all and (min-width: 992px) and (max-width: 1200px) { 
     .mq-filtres-apparition{
@@ -163,7 +163,7 @@ input {
     
 }
 
-/* hébergements */
+/* hébergements - home page */
 
 @media all and (max-width: 484px) { 
     .bi-graph-up-arrow{
@@ -253,7 +253,7 @@ input {
     }
 }
 
-/* hébergements - afficher-plus */
+/* hébergements - afficher-plus - home page*/
 
 @media all and (max-width: 768px) { 
     #afficher-plus{
@@ -267,7 +267,7 @@ input {
     }
 }
 
-/* activites */
+/* activites - home page */
 
 @media all and (min-width: 992px) and (max-width: 1200px) { 
     .redim-img-activites1 {
@@ -355,7 +355,7 @@ input {
     }
 }
 
-/* footer */
+/* footer - home page */
 
 @media all and (max-width: 768px) { 
     .mq-flex-footer{
@@ -367,6 +367,14 @@ input {
     .mq-w-div-footer{
         width: 75%;
 
+    }
+}
+
+/* INSCRIPTION PAGE - input submit */
+
+@media all and (max-width: 537px) { 
+    .mq-input{
+        width: 80%;
     }
 }
 
