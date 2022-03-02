@@ -1,4 +1,3 @@
-
 const ecoId = document.getElementById("eco")
 const eco = document.getElementById("event-eco");
 const familleId = document.getElementById("famille")
@@ -11,7 +10,7 @@ const marseillePlus = document.getElementById("afficher-plus");
 
 /* NAV */
 
-function featureConnectInscript() { 
+const featureConnectInscript = () => { 
     
     const dropdown = document.getElementById("dropdown");
 
@@ -22,16 +21,34 @@ function featureConnectInscript() {
         Compte
         </a>
         <ul class="dropdown-menu text-grey border-0" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item text-grey" href="login.html">Connexion</a></li>
-            <li><a class="dropdown-item text-grey" href="inscription.html">Inscription</a></li>
+            <li class="connexion"><a class="dropdown-item text-grey cursor" href="login.html">Connexion</a></li>
+            <li class="deconnexion" onclick="logOut();"><a class="dropdown-item text-grey cursor">Deconnexion</a></li>
+            <li class="inscription"><a class="dropdown-item text-grey cursor" href="inscription.html">Inscription</a></li>
         </ul>`;
 
         dropdown.innerHTML = connectInscript;
+
+        if(localStorage.getItem('userId') !== null) {
+            const connexion = document.querySelector('.connexion');
+            connexion.style.display = "none";
+            const inscription = document.querySelector('.inscription');
+            inscription.style.display = "none";
+        } else {
+            const deconnexion = document.querySelector('.deconnexion');
+            deconnexion.style.display = "none";
+        }
+};
+
+const logOut = () => {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('token');
+    localStorage.removeItem('noteHostel');
+    window.location.href = "index.html"
 };
 
 /* FORM */
 
-function formTransition() {    
+const formTransition = () => {    
 
     const form = document.getElementById("form-translate");
 
@@ -51,12 +68,12 @@ function formTransition() {
 
 /* FILTRES */
 
-function filtreEco () {   
+const filtreEco = () => {   
 
     let hotelEco = [];
 
         hotelEco = hotelEco + 
-        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-3 pt-1">
+        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-4 pt-1">
             <div class="row d-flex col-12 align-items-center">
                 <h2 class="h5 col-12 pt-4 ps-5 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#FFD700" class="bi bi-star mb-1" viewBox="0 0 16 16">
@@ -65,14 +82,18 @@ function filtreEco () {
             Le meilleur plan éco du moment</h2>
             </div>
             <div class="col-lg-6 mx-auto my-3 border bg-white shadow radius20 mb-2 d-flex mq-filtres-apparition">
-                <img src="./img/hebergements/hebergements_small_1.jpg" class="px-1 py-1 redim-img-popul" alt="Auberge Le Panier">
+                <img src="./img/hebergements/hebergements_small_5.jpg" class="px-1 py-1 redim-img-popul" alt="Auberge Le Panier">
                 <div class="col-6">
                     <div class="col-12">
                         <p class="ps-2 pt-2">Auberge Le Panier</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">23€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -85,14 +106,18 @@ function filtreEco () {
             Les autres plans éco</h2>
             </div>
             <div class="col-5 bg-white mx-auto my-3 border shadow radius20 mb-2 d-flex mq-filtres-apparition">
-                <img src="./img/hebergements/hebergements_small_5.jpg" class="px-1 py-1 redim-img-popul" alt="Auberge la cannebière">
+                <img src="./img/hebergements/hebergements_small_1.jpg" class="px-1 py-1 redim-img-popul" alt="Auberge la cannebière">
                 <div class="col-6">
                     <div class="col-12">
                         <p class="ps-2 pt-2">Auberge la cannebière</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">25€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -103,8 +128,12 @@ function filtreEco () {
                         <p class="ps-2 pt-2">Hôtel de la mer</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">46€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;" >&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -121,12 +150,12 @@ eco.addEventListener('click', function (){
     animauxId.style.display = "none";
 });
 
-function filtreFamille () {    
+const filtreFamille = () => {    
 
     let hotelFamille = [];
 
         hotelFamille = hotelFamille + 
-        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-3 pt-1">
+        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-4 pt-1">
             <div class="row d-flex col-12 align-items-center">
                 <h2 class="h5 col-12 pt-4 ps-5 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#FFD700" class="bi bi-star mb-1" viewBox="0 0 16 16">
@@ -141,8 +170,12 @@ function filtreFamille () {
                         <p class="ps-2 pt-2">Hôtel Tout bleu et Blanc</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">68€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -154,8 +187,12 @@ function filtreFamille () {
                         <p class="ps-2 pt-2">Hôtel chez Amina</p>
                         <p class="ps-2  pb-3 text-grey">Nuit à partir de <span class="text-dark">96€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -166,8 +203,12 @@ function filtreFamille () {
                         <p class="ps-2 pt-2">Auberge Le Panier</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">23€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -184,13 +225,13 @@ famille.addEventListener('click', function (){
         animauxId.style.display = "none";
 });
 
-function filtreRomantique () {    
+const filtreRomantique = () => {    
 
     let hotelRomantique = [];
 
         hotelRomantique = hotelRomantique + 
         `
-    <aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-3 pt-1">
+    <aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-4 pt-1">
         <div class="row d-flex col-12 align-items-center">
             <h2 class="h5 col-12 pt-4 ps-5 text-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#FFD700" class="bi bi-star mb-1" viewBox="0 0 16 16">
@@ -205,8 +246,12 @@ function filtreRomantique () {
                     <p class="ps-2 pt-2">Hôtel Le soleil du matin</p>
                     <p class="ps-2 pb-3 text-grey pad-none">Nuit à partir de <span class="text-dark">128€</span></p>
                 </div>
-                <div>
-                    <span class="ps-2" >ratings</span>
+                <div class="starhebergement">
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star" >&#9733</i>
+                    <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                 </div>
             </div>
         </div>
@@ -224,8 +269,12 @@ function filtreRomantique () {
                     <p class="ps-2 pt-2">Hôtel de la mer</p>
                     <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">46€</span></p>
                 </div>
-                <div>
-                    <span class="ps-2" >ratings</span>
+                <div class="starhebergement">
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star" style="color:#F2F2F2;" >&#9733</i>
+                    <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                 </div>
             </div>
         </div>
@@ -236,8 +285,12 @@ function filtreRomantique () {
                     <p class="ps-2 pt-2">Au coeur de l'eau Chambres d'Hôtes</p>
                     <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">71€</span></p>
                 </div>
-                <div>
-                    <span class="ps-2" >ratings</span>
+                <div class="starhebergement">
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
+                    <i class="ps-2 star">&#9733</i>
                 </div>
             </div>
         </div>
@@ -254,12 +307,12 @@ romantique.addEventListener('click', function (){
     animauxId.style.display = "none";
 });
 
-function filtreAnimaux () {    
+const filtreAnimaux = () => {    
 
     let hotelAnimaux = [];
 
         hotelAnimaux = hotelAnimaux + 
-        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-3 pt-1">
+        `<aside class="filtres-apparition col-11 mx-auto br40 d-flex flex-wrap mb-4 pt-1">
             <div class="row d-flex col-12 align-items-center">
                 <h2 class="h5 col-12 pt-4 ps-5 text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#0065fc" class="bi bi-emoji-smile mb-1" viewBox="0 0 16 16">
@@ -275,8 +328,12 @@ function filtreAnimaux () {
                         <p class="ps-2 pt-2">Hôtel Les Mouettes</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">76€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -287,8 +344,12 @@ function filtreAnimaux () {
                         <p class="ps-2 pt-2">Hôtel chez Amina</p>
                         <p class="ps-2  pb-3 text-grey">Nuit à partir de <span class="text-dark">96€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -307,48 +368,31 @@ animaux.addEventListener('click', function (){
 
 /* HEBERGEMENTS & ASIDE POPULAIRES */
 
-function hebergMarseillePlus() {  
+const welcomeH2 = () => {
+    
+    const welcomeOne = document.getElementById("welcome");
+    const welcomeTwo = document.getElementById("welcomeConnect");
 
-    const linkAfficherplus = document.getElementById("link-afficher-plus")
-    linkAfficherplus.style.visibility= "hidden";
+    if(localStorage.getItem('userId') === null) {
 
-    let hotelMarseillePlus = [];
+    let welcomeNotConnect = [];
 
-        hotelMarseillePlus = hotelMarseillePlus + 
-        `<div id="apparition-opacity" class="col-10 mt-5 py-2 d-flex flex-wrap justify-content-center mx-auto bg-light shadow br40" >
-            <h2 class="h5 col-11 pt-2 ps-4 text-center">Autres hébergements à Marseille</h2>
-            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
-                <div class="border bg-white radius20 pb-1 mb-2">
-                    <img src="./img/hebergements/hebergements_small_9.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel Tout bleu et Blanc">
-                    <p class="px-2">Hôtel Tout bleu et Blanc</p>
-                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">68€</span></p>
-                    <div class="starhebergement">
-                        <i class="ps-2 star">&#9733</i>
-                    </div>
-                </div>
-            </div>
-            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
-                <div class="border bg-white radius20 pb-1 mb-2">
-                    <img src="./img/hebergements/hebergements_small_8.jpg" class="px-1 py-1 redim-img-heberg" alt="Au coeur de l'eau Chambres d'Hôtes">
-                    <p class="px-2">Au coeur de l'eau Chambres d'Hôtes</p>
-                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">71€</span></p>
-                    <span class="ps-2" >ratings</span>
-                </div>
-            </div>
-            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
-                <div class="border bg-white radius20 pb-1 mb-2">
-                    <img src="./img/hebergements/hebergements_small_7.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel Le soleil du matin">
-                    <p class="px-2">Hôtel Le soleil du matin</p>
-                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">128€</span></p>
-                    <span class="ps-2" >ratings</span>
-                </div>
-            </div>
-        </div>`;
+        welcomeNotConnect = welcomeNotConnect + 
+        `<h2 class="text-center my-3 w-75 mx-auto">Bienvenue sur Réservia</h2>`;
 
-        marseillePlus.innerHTML = hotelMarseillePlus;
-};
+        welcomeOne.innerHTML = welcomeNotConnect;
+    } else {
+        let welcomeConnect = [];
 
-function hebergMarseille() {    
+        welcomeConnect = welcomeConnect + 
+        `<h2 id="firstNameTitleHome" class="h2 text-center my-3 w-75 mx-auto "></h2>
+        `;
+
+        welcomeTwo.innerHTML = welcomeConnect;
+    }
+}
+
+const hebergMarseille = () => {    
 
     const marseille = document.getElementById("hebergements");
 
@@ -357,20 +401,32 @@ function hebergMarseille() {
         hotelMarseille = hotelMarseille + 
         `<article id="article" class="col-7 mt-3 d-flex flex-wrap justify-content-center bg-light shadow br40 mx-auto">
             <h2 class="h5 col-11 pt-4 pb-3 ps-4">Hébergements à Marseille</h2>
+            
             <div class="w-30 px-1 py-1 mq-w-heberg">
-                <div class="clignote border bg-white radius20 pb-1 mb-2">
+                <div class="clignote hotel cursor border bg-white radius20 pb-1 mb-2" onclick="hotelLink();">
                     <img src="./img/hebergements/hebergements_small_1.jpg" class="px-1 py-1 redim-img-heberg" alt="Auberge la cannebière">
-                    <p class="ps-2">Auberge la cannebière</p>
+                    <p class="hostelName ps-2">Auberge la cannebière</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">25€</span></p>
                     <div class="starhebergement">
                         <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
+               
                 <div class="border bg-white radius20 pb-1 mb-2">
                     <img src="./img/hebergements/hebergements_small_4.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel de la mer">
                     <p class="ps-2">Hôtel de la mer</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">46€</span></p>
-                    <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                    </div>
                 </div>
             </div>
             <div class="w-30 px-1 py-1 mq-w-heberg">
@@ -378,13 +434,25 @@ function hebergMarseille() {
                     <img src="./img/hebergements/hebergements_small_2.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel du port">
                     <p class="ps-2">Hôtel du port</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">52€</span></p>
-                    <span class="ps-2">ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                    </div>
                 </div>
                 <div class="border bg-white radius20 pb-1 mb-2">
                     <img src="./img/hebergements/hebergements_small_5.jpg" class="px-1 py-1 redim-img-heberg" alt="Auberge Le Panier">
                     <p class="ps-2">Auberge Le Panier</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">23€</span></p>
-                    <span class="ps-2">ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                    </div>
                 </div>
             </div>
             <div class="w-30 px-1 py-1 mq-w-heberg">
@@ -392,13 +460,25 @@ function hebergMarseille() {
                     <img src="./img/hebergements/hebergements_small_3.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel Les Mouettes">
                     <p class="ps-2">Hôtel Les Mouettes</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">76€</span></p>
-                    <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                    </div>
                 </div>
                 <div class="border bg-white radius20 pb-1 mb-2">
                     <img src="./img/hebergements/hebergements_small_6.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel chez Amina">
                     <p class="ps-2">Hôtel chez Amina</p>
                     <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">96€</span></p>
-                    <span class="ps-2">ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                    </div>
                 </div>
             </div>
             <a href"#" onclick="hebergMarseillePlus()" id="link-afficher-plus" class="col-11 pb-4 ps-4 text-dark cursor"><p class="clignote text-center" style="width: 120px">Afficher plus..</p></a>
@@ -417,8 +497,12 @@ function hebergMarseille() {
                         <p class="ps-2 pt-2">Hôtel Tout bleu et Blanc</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">68€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -429,8 +513,12 @@ function hebergMarseille() {
                         <p class="ps-2 pt-2">Au coeur de l'eau Chambres d'Hôtes</p>
                         <p class="ps-2 pb-3 text-grey">Nuit à partir de <span class="text-dark">71€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
                     </div>
                 </div>
             </div>
@@ -441,17 +529,105 @@ function hebergMarseille() {
                         <p class="ps-2 pt-2">Hôtel Le soleil du matin</p>
                         <p class="ps-2  pb-3 text-grey">Nuit à partir de <span class="text-dark">128€</span></p>
                     </div>
-                    <div>
-                        <span class="ps-2" >ratings</span>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
                     </div>
                 </div>
             </div>
         </aside>`;
 
         marseille.innerHTML = hotelMarseille
+}; 
+
+const hotelLink = () => {
+    
+    let hotel = document.querySelector(".hotel");
+    let hostelName = document.querySelector(".hostelName").innerText;
+
+    hotel.addEventListener("click", function() {
+
+        fetch(`http://localhost:3000/api/hostels`, {
+            method: "GET",
+            })
+            .then(function(res) {
+            if (res.ok) {
+                return res.json();
+                }
+            })
+            .then(function(res){
+                res.forEach(function(element) {
+                    if(hostelName === element.hostelName){
+                        window.location.href = `hotel.html?${element._id}`
+                    }
+                          
+            });
+        });  
+    });   
 };
 
-function sectionActivitesMarseille() {    
+
+const hebergMarseillePlus = () => {  
+
+    const linkAfficherplus = document.getElementById("link-afficher-plus")
+    linkAfficherplus.style.visibility= "hidden";
+
+    let hotelMarseillePlus = [];
+
+        hotelMarseillePlus = hotelMarseillePlus + 
+        `<div id="apparition-opacity" class="col-10 mt-5 py-2 d-flex flex-wrap justify-content-center mx-auto bg-light shadow br40" >
+            <h2 class="h5 col-11 pt-2 ps-4 text-center">Autres hébergements à Marseille</h2>
+            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
+                <div class="border bg-white radius20 pb-1 mb-2">
+                    <img src="./img/hebergements/hebergements_small_9.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel Tout bleu et Blanc">
+                    <p class="px-2">Hôtel Tout bleu et Blanc</p>
+                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">68€</span></p>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                    </div>
+                </div>
+            </div>
+            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
+                <div class="border bg-white radius20 pb-1 mb-2">
+                    <img src="./img/hebergements/hebergements_small_8.jpg" class="px-1 py-1 redim-img-heberg" alt="Au coeur de l'eau Chambres d'Hôtes">
+                    <p class="px-2">Au coeur de l'eau Chambres d'Hôtes</p>
+                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">71€</span></p>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star" style="color:#F2F2F2;">&#9733</i>
+                    </div>
+                </div>
+            </div>
+            <div class="w-30 px-2 py-2 mq-w-afficher-plus">
+                <div class="border bg-white radius20 pb-1 mb-2">
+                    <img src="./img/hebergements/hebergements_small_7.jpg" class="px-1 py-1 redim-img-heberg" alt="Hôtel Le soleil du matin">
+                    <p class="px-2">Hôtel Le soleil du matin</p>
+                    <p class="ps-2 text-grey">Nuit à partir de <span class="text-dark">128€</span></p>
+                    <div class="starhebergement">
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                        <i class="ps-2 star">&#9733</i>
+                    </div>
+                </div>
+            </div>
+        </div>`;
+
+        marseillePlus.innerHTML = hotelMarseillePlus;
+};
+
+const sectionActivitesMarseille = () => {    
 
     const activites = document.getElementById("activites");
 
@@ -498,8 +674,73 @@ function sectionActivitesMarseille() {
         activites.innerHTML = activitesMarseille
 };
 
+/* FOOTER */
 
-featureConnectInscript();
-formTransition();
-hebergMarseille();
-sectionActivitesMarseille();
+const footerPage = () => {    
+
+    const footer = document.getElementById("footer");
+
+    let footerBlock = [];
+
+        footerBlock = footerBlock + 
+        `<div class="w-30 ps-4 pb-3 mq-w-div-footer">
+            <h3 class="h5 pb-3">A propos</h3>
+            <p class="pb-2"><a href="#" class="text-grey text-decoration-none">Fonctionnement du site</a></p>
+            <p class="pb-2"><a href="#" class="text-grey text-decoration-none">Conditions générales de vente</a></p>
+            <p><a href="#" class="text-grey text-decoration-none">Données et confidentialité</a></p>
+        </div>
+        <div class="w-30 ps-4 pb-3 mq-w-div-footer">
+            <h3 class="h5 pb-3">Nos hébergements</h3>
+            <p class="pb-2"><a href="#" class="text-grey text-decoration-none">Charte qualité</a></p>
+            <p><a href="#" class="clignote text-grey text-decoration-none"> Soumettre votre hôtel - Soon</a></p>
+        </div>
+        <div class="w-30 ps-4 pb-3 mq-w-div-footer">
+            <h3 class="h5 pb-3">Assistance</h3>
+            <p class="pb-2"><a href="#" class="text-grey text-decoration-none">Centre d'aide</a></p>
+            <p class="pb-2"><a href="mailto:crisinvest88@gmail.com" class="text-grey text-decoration-none">Nous contacter</a></p>
+        </div>`;
+
+        footer.innerHTML = footerBlock;
+};
+
+/* USER */
+
+const userId = localStorage.getItem('userId');
+const token = localStorage.getItem('token');
+
+const user = () => {
+
+    fetch(`http://localhost:3000/api/auth/user/${userId}`, {
+        method: "GET",
+        headers:
+        {
+        "Authorization": "Bearer " + token },
+        })
+        
+        .then(function(res) {
+          if (res.ok) {
+            return res.json();
+            }
+        })
+        .then(function(res){
+           const firstName = res.firstName;
+           const firstNameTitleHome  = document.getElementById('firstNameTitleHome');
+           firstNameTitleHome.innerHTML = "Bonjour " + `${firstName}` + ", bientôt les vacances ! Voici les hébergements séléctionner pour vous..";
+           
+        }) 
+}
+
+    
+    featureConnectInscript();
+    formTransition();
+    welcomeH2();
+    user();
+    hebergMarseille();
+    sectionActivitesMarseille();
+    footerPage();
+    
+
+
+ 
+
+

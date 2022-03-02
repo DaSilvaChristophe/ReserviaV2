@@ -1,7 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv').config()
+
 
 const userRoutes = require('./routes/user');
+const hostelRoutes = require('./routes/hostel');
 
 const app = express();
 
@@ -12,14 +15,15 @@ app.use((req, res, next) => {
     next();
   });
 
-mongoose.connect('mongodb+srv://Cris:ProjectBusinessOne@cluster1.dabfe.mongodb.net/ReserviaV2?retryWrites=true&w=majority',
+mongoose.connect(`mongodb+srv://Cris:${process.env.DATABASE_ACCESS}@cluster1.dabfe.mongodb.net/ReserviaV2?retryWrites=true&w=majority`,
 { useNewUrlParser: true,
   useUnifiedTopology: true })
   .then(() => console.log('Connexion à MongoDB réussi !'))
-  .catch(() => console.log('Connexion à MongoDB échoué !'));
+  .catch((error) => console.log(error));
 
 app.use(express.json());
 
 app.use('/api/auth', userRoutes);
+app.use('/api/', hostelRoutes);
 
 module.exports = app;

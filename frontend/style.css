@@ -126,6 +126,13 @@ input {
     border-radius: 20px;
 }
 
+
+.redim-img-hotel-profil {
+    object-fit: cover;
+    width: 100%;
+    height: 350px;
+    border-radius: 40px;
+}
 /* MEDIA QUERIES */
 
 /* form - home page */
@@ -366,7 +373,6 @@ input {
     }
     .mq-w-div-footer{
         width: 75%;
-
     }
 }
 
@@ -375,6 +381,24 @@ input {
 @media all and (max-width: 537px) { 
     .mq-input{
         width: 80%;
+    }
+}
+
+/* HOSTEL PAGE */
+
+@media all and (max-width: 690px) { 
+    .mq-w-button-note {
+        width: 70%;
+    }
+    .mq-w-90{
+        width: 90%;
+    }
+}
+
+@media all and (min-width: 691px) and (max-width: 1400px)  { 
+    
+    .mq-w-75 {
+        width: 75%;
     }
 }
 
@@ -388,7 +412,7 @@ input {
     .translate-presentation {animation: translate-presentation 7s ease 0s forwards;}
     #hebergements{animation: translate-presentation 7s ease 0s forwards;}
     #activites{animation: translate-presentation 9s ease 0s forwards;}
- 
+    #hotelProfil {animation: translate-presentation 7s ease 0s forwards;}
 @keyframes transition {
     0%   { margin-top: 50px ; opacity: 0.1; }
     50% { margin-top: -20px; opacity: 0.7; }
@@ -397,14 +421,12 @@ input {
     100% { margin-top: -10px; opacity: 1; }
     }
     .filtres-apparition {opacity: 0; animation: transition 3s ease-in-out 0s forwards;}
-
 @keyframes opacity {
     0%   { opacity: 0.1; }
     50% {  opacity: 0.6; }
     100% { opacity: 1; }
     }
     #apparition-opacity {opacity: 0; animation: opacity 3s ease-in-out 0s forwards;}
-
 @keyframes clignote {
     0%{box-shadow: 0 0 10px #0065fc;}
     25%{box-shadow: 0 0 0px #0065fc;}
