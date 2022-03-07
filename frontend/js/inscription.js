@@ -1,3 +1,5 @@
+
+
 const submitForm = () => {
 
   /* Validation des données formulaire */
@@ -40,13 +42,16 @@ const submitForm = () => {
     headers:
       {'Content-Type': 'application/json'}
     })
-    .then(function(res) {
+    .then(res => {
+      if(res.status === 404){
+        throw new Error();
+      }
       if (res.ok) {
         return res.json();
-      }
+      } 
     })
     .then(function(){
-      
+
       const alertPlaceholder = document.getElementById('DivAlert')
       const alertTrigger = document.getElementById('liveAlertBtn')
 
@@ -62,10 +67,23 @@ const submitForm = () => {
       alertDeclenche();
 
       function redirectionLogin() {
-        window.location.href = "login.html";
+        window.location.href = "login.html"
       }
-      setTimeout(redirectionLogin, 5000)
-    })  
+      setTimeout(redirectionLogin, 2500)
+    })
+    .catch(function() {
+        const errorMail = document.querySelector('.error-mail-exist')
+        errorMail.innerHTML = "Email deja existant dans la base de donnée !"
+        errorMail.style.color = "red"
+        form.classList.remove('was-validated')
+        function reactualisationErrorMailExist() {
+          const errorMailRea = document.querySelector('.error-mail-exist')
+          errorMailRea.style.display = "none"
+          const valueMailInput = document.querySelector('#email')
+          valueMailInput.value = ""
+        }
+        setTimeout(reactualisationErrorMailExist, 3000)
+    })
   }
 }
 

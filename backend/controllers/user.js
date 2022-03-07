@@ -4,19 +4,26 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user')
 
 exports.signup = (req, res, next) => {
-    bcrypt.hash(req.body.password, 10)
-    .then(hash => {
-        const user = new User({
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            password: hash
-        });
-        user.save()
-        .then(() => res.status(201).json({ message: 'Utilisateur crée !'}))
-        .catch(error => res.status(400).json({ error }));
-    })
-    .catch(error => console.log(error))
+    User.findOne({ email: req.body.email})
+        .then(user => {
+            if (user) {
+                return res.status(404).json({ error: 'Email deja existant dans la base de donnée !'});
+            } else {
+                bcrypt.hash(req.body.password, 10)
+                .then(hash => {
+                    const user = new User({
+                        firstName: req.body.firstName,
+                        lastName: req.body.lastName,
+                        email: req.body.email,
+                        password: hash
+                    });
+                    user.save()
+                    .then(() => res.status(201).json({ message: 'Utilisateur crée !'}))
+                    .catch(error => res.status(400).json({ error }));
+                })
+                .catch(error => console.log(error))
+            }
+        })
 };
 
 exports.login = (req, res, next) => {
